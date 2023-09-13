@@ -27,7 +27,7 @@ const cards = [
 
 const memoryGame = new MemoryGame(cards);
 
-window.addEventListener('load', (event) => {
+window.addEventListener('load', (event) => {  
   let html = '';
   memoryGame.cards.forEach((pic) => {
     html += `
@@ -46,6 +46,10 @@ window.addEventListener('load', (event) => {
     card.addEventListener('click', () => {
       // TODO: write some code here
       console.log(`Card clicked: ${card}`);
+      cards.classList.toggle(`turned`) 
+       if (memoryGame.pickedCards.length < 2){
+        memoryGame.pickedCards.push(card)
+       }
     });
   });
 });
